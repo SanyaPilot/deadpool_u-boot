@@ -50,7 +50,7 @@ Description:
 
 #ifndef CONFIG_AML_MMC_INHERENT_PART
 #define     PARTITION_RESERVED              (8*SZ_1M)  // 8MB
-#define     MMC_BOOT_PARTITION_RESERVED     (32*SZ_1M) // 32MB
+#define     MMC_BOOT_PARTITION_RESERVED     (64*SZ_1M) // 64MB
 
 #define     MMC_BOOT_NAME                   "bootloader"
 #define     MMC_BOOT_NAME0                   "bootloader-boot0"
@@ -58,7 +58,7 @@ Description:
 #define     MMC_BOOT_DEVICE_SIZE            (0x4*SZ_1M)
 
 #define     MMC_RESERVED_NAME               "reserved"
-#define     MMC_RESERVED_SIZE               (64*SZ_1M)
+#define     MMC_RESERVED_SIZE               (32*SZ_1M)
 #define		MMC_BOTTOM_RSV_SIZE				(0)
 #endif		/* CONFIG_AML_MMC_INHERENT_PART */
 
@@ -71,7 +71,7 @@ Description:
 #define     MMC_KEY_NAME                    "key"
 #define     MMC_KEY_SIZE                    (256*1024)
 #define     EMMCKEY_RESERVE_OFFSET           (0x4000)
-#define     MMC_RESERVED_OFFSET              (36*SZ_1M)
+#define     MMC_RESERVED_OFFSET              (68*SZ_1M)
 #define     MMC_BLOCK_SIZE                   (512)
 // #define     MMC_SECURE_NAME                 "secure"
 // #define     MMC_SECURE_SIZE                 (0x1*SZ_1M)
