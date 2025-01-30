@@ -26,37 +26,43 @@
 Reboot reason AND corresponding env setting:
 0:  Cold boot                 cold_boot
 1:  Normal boot               normal
-2:  Factory reset             factory_reset
+14:  Factory reset             factory_reset
 3:  Upgrade system            update
 4:  Fastboot                  fastboot
 5:  Suspend                   suspend_off
 6:  Hibernate                 hibernate
-7:  Fastboot Bootloader       bootloader
+15:  Fastboot Bootloader       bootloader
 8:  Shutdown reboot           shutdown_reboot
 9:  RPMBP reboot              rpmbp
 10: quiescent reboot          quiescent reboot
 11:  Crash dump               crash_dump
 12:  Kernel panic             kernel_panic
 13:  Watchdog reboot          watchdog_reboot
-14: quiescent recovery reboot   quiescent recovery
-15: reserved
+2: quiescent recovery reboot   quiescent recovery
+7: reserved
 */
+
+/*
+HACK: swap factory_reset and recovery_quiescent; bootloader and ffv_reboot
+This will stop built-in U-Boot (which we can't change) from defaulting env
+*/
+
 #define AMLOGIC_COLD_BOOT				0
 #define	AMLOGIC_NORMAL_BOOT				1
-#define	AMLOGIC_FACTORY_RESET_REBOOT	2
+#define	AMLOGIC_FACTORY_RESET_REBOOT	14
 #define	AMLOGIC_UPDATE_REBOOT			3
 #define AMLOGIC_FASTBOOT_REBOOT			4
 #define AMLOGIC_SUSPEND_REBOOT			5
 #define AMLOGIC_HIBERNATE_REBOOT		6
-#define AMLOGIC_BOOTLOADER_REBOOT		7 /* fastboot bootloader */
+#define AMLOGIC_BOOTLOADER_REBOOT		15 /* fastboot bootloader */
 #define AMLOGIC_SHUTDOWN_REBOOT                 8
 #define AMLOGIC_RPMBP_REBOOT			9
 #define AMLOGIC_QUIESCENT_REBOOT		10
 #define	AMLOGIC_CRASH_REBOOT			11
 #define AMLOGIC_KERNEL_PANIC			12
 #define AMLOGIC_WATCHDOG_REBOOT			13
-#define AMLOGIC_RECOVERY_QUIESCENT_REBOOT	14
-#define AMLOGIC_FFV_REBOOT			15
+#define AMLOGIC_RECOVERY_QUIESCENT_REBOOT	2
+#define AMLOGIC_FFV_REBOOT			7
 unsigned int do_get_reboot_reason(void);
 /*
 old version env
