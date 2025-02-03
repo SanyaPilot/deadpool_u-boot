@@ -118,7 +118,7 @@
         "sdc_burning=sdc_burn ${sdcburncfg}\0"\
         "wipe_data=successful\0"\
         "wipe_cache=successful\0"\
-        "EnableSelinux=enforcing\0" \
+        "EnableSelinux=permissive\0" \
         "recovery_part=recovery\0"\
         "lock=10100000\0"\
         "recovery_offset=0\0"\
@@ -132,7 +132,7 @@
         "fs_type=""rootfstype=ramfs""\0"\
         "aml_dt=g12a_s905x2_yandex_stationmax\0"\
         "initargs="\
-            "init=/init console=null earlyprintk=aml-uart,0xff803000 ramoops.pstore_en=1 ramoops.record_size=0x8000 ramoops.console_size=0x4000 "\
+            "init=/init console=ttyS0,115200 earlyprintk=aml-uart,0xff803000 ramoops.pstore_en=1 ramoops.record_size=0x8000 ramoops.console_size=0x4000 "\
             "\0"\
         "upgrade_check="\
             "echo upgrade_step=${upgrade_step}; "\
