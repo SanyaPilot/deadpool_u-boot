@@ -290,18 +290,15 @@
             "\0"\
         "cmdline_keys="\
             "if keyman init 0x1234; then "\
-                "if keyman read usid ${loadaddr} str; then "\
-                    "setenv bootargs ${bootargs} androidboot.serialno=${usid};"\
-                    "setenv serial ${usid};"\
+                "if keyman read deviceid ${loadaddr} str; then "\
+                    "setenv bootargs ${bootargs} androidboot.serialno=${deviceid} androidboot.deviceid=${deviceid};"\
+                    "setenv serial ${deviceid};"\
                 "else "\
-                    "setenv bootargs ${bootargs} androidboot.serialno=1234567891;"\
+                    "setenv bootargs ${bootargs} androidboot.serialno=1234567890;"\
                     "setenv serial 1234567890;"\
                 "fi;"\
                 "if keyman read mac ${loadaddr} str; then "\
                     "setenv bootargs ${bootargs} mac=${mac} androidboot.mac=${mac};"\
-                "fi;"\
-                "if keyman read deviceid ${loadaddr} str; then "\
-                    "setenv bootargs ${bootargs} androidboot.deviceid=${deviceid};"\
                 "fi;"\
                 "if keyman read oemkey ${loadaddr} str; then "\
                     "setenv bootargs ${bootargs} androidboot.oem.key1=${oemkey};"\
